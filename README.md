@@ -1,5 +1,17 @@
 # pytorch-flask-docker-object-detection-API
 
+## Docker image is available :
+
+```
+docker pull ajinkyabobade93/ssd-detection-app
+sudo docker run -it -d -p 5000:5000 ssd-detection-app
+```
+API call:
+
+```
+git clone https://github.com/ajinkya933/pytorch-flask-docker-object-detection-API
+curl -X POST -F image=@dog.jpg 'http://localhost:5000/predict'
+```
 
 ## Install weights
 
