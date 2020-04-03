@@ -4,7 +4,7 @@
 
 ```
 docker pull ajinkyabobade93/ssd-detection-app
-sudo docker run -it -d -p 5000:5000 ssd-detection-app
+sudo docker run -it -d -p 5000:5000 ajinkyabobade93/ssd-detection-app
 ```
 API call:
 
