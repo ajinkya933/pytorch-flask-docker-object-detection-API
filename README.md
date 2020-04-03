@@ -12,6 +12,8 @@ API call:
 git clone https://github.com/ajinkya933/pytorch-flask-docker-object-detection-API
 curl -X POST -F image=@dog.jpg 'http://localhost:5000/predict'
 ```
+# If you want to build from source 
+___
 
 ## Install weights
 
