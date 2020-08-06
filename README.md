@@ -28,6 +28,11 @@ wget https://s3.amazonaws.com/amdegroot-models/ssd300_mAP_77.43_v2.pth
 sudo docker build -t ssd-detection-app:latest .
 ```
 
+## Docker ssh into image
+```
+sudo docker build -t ssd-detection-app:latest . \bin\bash
+```
+
 ## Docker demo run flask server(used to check if the flask server works)
 ```
 sudo docker run -it ssd-detection-app
