@@ -5,6 +5,8 @@ WORKDIR /ssd-det
 COPY requirement.txt /ssd-det
 RUN sudo apt-get update
 RUN sudo apt-get install -y libsm6 libxext6 libxrender-dev libglib2.0-0
+RUN sudo apt-get -y install sqlite3 libsqlite3-dev
+
 RUN pip install -r ./requirement.txt
 
 COPY . /ssd-det
