@@ -21,6 +21,21 @@ import cv2
 if torch.cuda.is_available():
     torch.set_default_tensor_type('torch.cuda.FloatTensor')
 from ssd import build_ssd
+from database import menu
+
+def parse_set(my_set):
+    c=[]
+
+    for item in my_set:
+
+        if item == 'person':
+            c.append(item)
+
+    if not c:
+        menu('12:00am', 'False')
+
+    elif c[0] == 'person':
+        menu('12:00am', 'True')
 
 labels = [
     'aeroplane', 'bicycle', 'bird', 'boat',
@@ -85,14 +100,17 @@ def predict():
 			for i in range(detections.size(1)):
 				j = 0
 				while detections[0,i,j,0] >= 0.6: # set the probabilty filter
+					my_set=set()
 					score = detections[0,i,j,0]
 					label_name = labels[i-1]
+					my_set.add(label_name)
 					pt = (detections[0,i,j,1:]*scale).cpu().numpy()
 					coords = (pt[0], pt[1]), pt[2]-pt[0]+1, pt[3]-pt[1]+1
 					r = {"label": label_name, "probability": float(score),"coords":str(coords)}
 					data["predictions"].append(r)
 					j+=1
-
+			my_list = list(my_set)
+			parse_set(my_set)
 			# indicate that the request was a success
 			data["success"] = True
 
